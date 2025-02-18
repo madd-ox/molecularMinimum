@@ -6,8 +6,8 @@ from copy import deepcopy as c
 import os
 
 #LocalDirectoryToWriteOutput
-dir= "../outs"
 
+dir= "../outs"
 #Vars
 numH2O=10
 numCO2=numCO3=1

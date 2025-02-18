@@ -164,7 +164,7 @@ def readXYZText(text):
     out=centerMolecule(out)
     return out
 
-def generateOut(directory):
+def generateOut(directory,PRINT=False,bondTol=1.1):
     """
     Loops through a directory and reads the first line of every file.
 
@@ -177,7 +177,6 @@ def generateOut(directory):
     outs = {}
 
     # Check if the directory exists
-    directory=directory+'/xyz'
     if not os.path.exists(directory):
         print(f"Error: Directory '{directory}' does not exist.")
         return outs
@@ -190,21 +189,23 @@ def generateOut(directory):
         if os.path.isfile(file_path) and file_path.split(".")[-1]=="xyz":
             try:
                 with open(file_path, 'r', encoding='utf-8') as file:
-                    print("----------------")
-                    print(file_path)
+                    if PRINT:
+                        print("----------------")
+                        print(file_path)
                     content= file.read()
                     lines=content.split("\n")
                     XYZs = content.split(lines[0]+"\n energy")
                     lastStrucutre=readXYZText(XYZs[-1])
-                    molFormulas=analyzeGeometry(lastStrucutre)
+                    molFormulas=analyzeGeometry(lastStrucutre,bondTolerance=bondTol,PRINT=PRINT)
                     energy=lines[1].split(" ")[2]
 
                     #first_line = file.readline().strip()
                     outs[fileID] = {
                         "Energy":energy,
-                        "Molecules":molFormulas
                     }
-                    print(outs[fileID])
+                    outs[fileID].update(molFormulas)
+                    if PRINT:
+                        print(outs[fileID])
             except Exception as e:
                 print(f"Could not read file '{filename}': {e}")
     outs=dict(sorted(outs.items(), key=lambda item: item[1]["Energy"],reverse=True))
@@ -215,11 +216,24 @@ def generateOut(directory):
     with open(output_file, mode="w", newline="") as file:
         writer = csv.writer(file)
         # Write the header
-        writer.writerow(["ID", "Energy"])
+        headers = ["ID"]
+        for molKey in outs.keys():
+            for key in outs[molKey]:
+                if key not in headers:
+                    headers.append(key)
+        writer.writerow(headers)
         # Write each key-value pair
+        row = []
         for key, value in outs.items():
-            writer.writerow([key, value["Energy"],str(value["Molecules"])])
+            row = [key]
+            for val in headers[1:]:
+                try:
+                    row.append(value[val])
+                except:
+                    row.append("0")
+            writer.writerow(row)
     return outs
+
 
 params={
     "HC":1.09,
@@ -262,48 +276,62 @@ params={
         '--':1.21
     }
 }
-def analyzeGeometry(xyz,bondTolerance=1.05):
-
-    molecules=[]
+def analyzeGeometry(xyz,bondTolerance=1.05,PRINT=False):
+    # Create a list of molecules
+    molecules = []
+    # Loop through every atom
     for atom_i in xyz:
-        for atom_j in xyz[xyz.index(atom_i)+1:]:
-            if atom_i!=atom_j:
-                bondOrder="-"
-                bondType=atom_i[0]+atom_j[0]
-                bondDistance = calculateDistance(atom_i,atom_j)
-                if isinstance(params[bondType],dict):
-                    bondOrder=(min(params[bondType], key=lambda bond: abs(params[bondType][bond] - bondDistance)))
+        # Loop through every following atom
+        for atom_j in xyz[xyz.index(atom_i):]:
+            # Make sure the atoms are not the same
+            if atom_i != atom_j:
+                # Define bond type (for example C-C or C-H)
+                bondType = atom_i[0] + atom_j[0]
+                bondType = ''.join(sorted(bondType))
+                # Calculate distance between atoms
+                bondDistance = calculateDistance(atom_i, atom_j)
+                # Check if distance would make single, double, triple, or no bond if applicable
+                if isinstance(params[bondType], dict):
+                    bondOrder = (min(params[bondType], key=lambda bond: abs(params[bondType][bond] - bondDistance)))
                     bondParam = params[bondType][bondOrder]
                 else:
-                    bondParam=params[bondType]
+                    bondParam = params[bondType]
+                # Check if distance is less than the bonding distnace
                 if bondDistance < bondParam*bondTolerance:
-                    #print(bondType[0]+bondOrder+bondType[1])
-                    if molecules==[]:
-                        molecules.append([atom_i,atom_j])
+                    if PRINT:
+                        print(f'{bondType[0] + bondOrder + bondType[1]} {bondDistance} {atom_i} {atom_j}')
+                    if molecules == []:
+                        # Add first 2 bonded atoms into molecules
+                        molecules.append([atom_i, atom_j])
                     else:
                         #Loop through molecules
                         for molecule in molecules:
-                            #If atom is in this molecule
                             if atom_i in molecule:
-                                #If bonded atom not in this molecule add bond
+                                # If bonded atom_j not in this molecule with atom_i add atom_j to molecule
                                 if atom_j not in molecule:
                                     molecule.append(atom_j)
                             #If atom not in molecule but bonded atom is
                             elif atom_j in molecule:
                                 for molecule_bad in molecules:
                                     if atom_i in molecule_bad:
+                                        # If atom_i is already in a bad molecule apend all atoms to parent molecule
                                         for atom in molecule_bad:
                                             if atom not in molecule:
                                                 molecule.append(atom)
                                         molecules.remove(molecule_bad)
                                         break
+                                    #NEW?
+                                    elif molecule_bad==molecules[-1]:
+                                        molecule.append(atom_i)
                                 pass
                             else:
+                                # If we looped through all molecules and both atoms are not in any molecule
                                 if molecule==molecules[-1]:
+                                    # Loop through again from the begining to make sure
                                     for moleculeRedo in molecules:
-                                        # If atom is in this molecule
+                                        # If atom_i is in redo molecule
                                         if atom_i in moleculeRedo:
-                                            # If bonded atom not in this molecule add bond
+                                            # If bonded atom_j not in this molecule add bond
                                             if atom_j not in moleculeRedo:
                                                 moleculeRedo.append(atom_j)
                                             elif molecule == molecules[-1]:
