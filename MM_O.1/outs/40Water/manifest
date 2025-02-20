@@ -1,0 +1,232 @@
+xtb ../outs/40Water/xyz/1.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/1.xyz
+mv xtbopt.xyz out/xyz/1.xyz
+xtb ../outs/40Water/xyz/2.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/2.xyz
+mv xtbopt.xyz out/xyz/2.xyz
+xtb ../outs/40Water/xyz/3.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/3.xyz
+mv xtbopt.xyz out/xyz/3.xyz
+xtb ../outs/40Water/xyz/4.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/4.xyz
+mv xtbopt.xyz out/xyz/4.xyz
+xtb ../outs/40Water/xyz/5.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/5.xyz
+mv xtbopt.xyz out/xyz/5.xyz
+xtb ../outs/40Water/xyz/6.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/6.xyz
+mv xtbopt.xyz out/xyz/6.xyz
+xtb ../outs/40Water/xyz/7.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/7.xyz
+mv xtbopt.xyz out/xyz/7.xyz
+xtb ../outs/40Water/xyz/8.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/8.xyz
+mv xtbopt.xyz out/xyz/8.xyz
+xtb ../outs/40Water/xyz/9.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/9.xyz
+mv xtbopt.xyz out/xyz/9.xyz
+xtb ../outs/40Water/xyz/10.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/10.xyz
+mv xtbopt.xyz out/xyz/10.xyz
+xtb ../outs/40Water/xyz/11.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/11.xyz
+mv xtbopt.xyz out/xyz/11.xyz
+xtb ../outs/40Water/xyz/12.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/12.xyz
+mv xtbopt.xyz out/xyz/12.xyz
+xtb ../outs/40Water/xyz/13.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/13.xyz
+mv xtbopt.xyz out/xyz/13.xyz
+xtb ../outs/40Water/xyz/14.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/14.xyz
+mv xtbopt.xyz out/xyz/14.xyz
+xtb ../outs/40Water/xyz/15.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/15.xyz
+mv xtbopt.xyz out/xyz/15.xyz
+xtb ../outs/40Water/xyz/16.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/16.xyz
+mv xtbopt.xyz out/xyz/16.xyz
+xtb ../outs/40Water/xyz/17.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/17.xyz
+mv xtbopt.xyz out/xyz/17.xyz
+xtb ../outs/40Water/xyz/18.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/18.xyz
+mv xtbopt.xyz out/xyz/18.xyz
+xtb ../outs/40Water/xyz/19.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/19.xyz
+mv xtbopt.xyz out/xyz/19.xyz
+xtb ../outs/40Water/xyz/20.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/20.xyz
+mv xtbopt.xyz out/xyz/20.xyz
+xtb ../outs/40Water/xyz/21.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/21.xyz
+mv xtbopt.xyz out/xyz/21.xyz
+xtb ../outs/40Water/xyz/22.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/22.xyz
+mv xtbopt.xyz out/xyz/22.xyz
+xtb ../outs/40Water/xyz/23.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/23.xyz
+mv xtbopt.xyz out/xyz/23.xyz
+xtb ../outs/40Water/xyz/24.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/24.xyz
+mv xtbopt.xyz out/xyz/24.xyz
+xtb ../outs/40Water/xyz/25.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/25.xyz
+mv xtbopt.xyz out/xyz/25.xyz
+xtb ../outs/40Water/xyz/26.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/26.xyz
+mv xtbopt.xyz out/xyz/26.xyz
+xtb ../outs/40Water/xyz/27.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/27.xyz
+mv xtbopt.xyz out/xyz/27.xyz
+xtb ../outs/40Water/xyz/28.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/28.xyz
+mv xtbopt.xyz out/xyz/28.xyz
+xtb ../outs/40Water/xyz/29.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/29.xyz
+mv xtbopt.xyz out/xyz/29.xyz
+xtb ../outs/40Water/xyz/30.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/30.xyz
+mv xtbopt.xyz out/xyz/30.xyz
+xtb ../outs/40Water/xyz/31.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/31.xyz
+mv xtbopt.xyz out/xyz/31.xyz
+xtb ../outs/40Water/xyz/32.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/32.xyz
+mv xtbopt.xyz out/xyz/32.xyz
+xtb ../outs/40Water/xyz/33.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/33.xyz
+mv xtbopt.xyz out/xyz/33.xyz
+xtb ../outs/40Water/xyz/34.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/34.xyz
+mv xtbopt.xyz out/xyz/34.xyz
+xtb ../outs/40Water/xyz/35.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/35.xyz
+mv xtbopt.xyz out/xyz/35.xyz
+xtb ../outs/40Water/xyz/36.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/36.xyz
+mv xtbopt.xyz out/xyz/36.xyz
+xtb ../outs/40Water/xyz/37.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/37.xyz
+mv xtbopt.xyz out/xyz/37.xyz
+xtb ../outs/40Water/xyz/38.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/38.xyz
+mv xtbopt.xyz out/xyz/38.xyz
+xtb ../outs/40Water/xyz/39.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/39.xyz
+mv xtbopt.xyz out/xyz/39.xyz
+xtb ../outs/40Water/xyz/40.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/40.xyz
+mv xtbopt.xyz out/xyz/40.xyz
+xtb ../outs/40Water/xyz/41.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/41.xyz
+mv xtbopt.xyz out/xyz/41.xyz
+xtb ../outs/40Water/xyz/42.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/42.xyz
+mv xtbopt.xyz out/xyz/42.xyz
+xtb ../outs/40Water/xyz/43.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/43.xyz
+mv xtbopt.xyz out/xyz/43.xyz
+xtb ../outs/40Water/xyz/44.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/44.xyz
+mv xtbopt.xyz out/xyz/44.xyz
+xtb ../outs/40Water/xyz/45.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/45.xyz
+mv xtbopt.xyz out/xyz/45.xyz
+xtb ../outs/40Water/xyz/46.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/46.xyz
+mv xtbopt.xyz out/xyz/46.xyz
+xtb ../outs/40Water/xyz/47.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/47.xyz
+mv xtbopt.xyz out/xyz/47.xyz
+xtb ../outs/40Water/xyz/48.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/48.xyz
+mv xtbopt.xyz out/xyz/48.xyz
+xtb ../outs/40Water/xyz/49.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/49.xyz
+mv xtbopt.xyz out/xyz/49.xyz
+xtb ../outs/40Water/xyz/50.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/50.xyz
+mv xtbopt.xyz out/xyz/50.xyz
+xtb ../outs/40Water/xyz/51.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/51.xyz
+mv xtbopt.xyz out/xyz/51.xyz
+xtb ../outs/40Water/xyz/52.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/52.xyz
+mv xtbopt.xyz out/xyz/52.xyz
+xtb ../outs/40Water/xyz/53.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/53.xyz
+mv xtbopt.xyz out/xyz/53.xyz
+xtb ../outs/40Water/xyz/54.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/54.xyz
+mv xtbopt.xyz out/xyz/54.xyz
+xtb ../outs/40Water/xyz/55.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/55.xyz
+mv xtbopt.xyz out/xyz/55.xyz
+xtb ../outs/40Water/xyz/56.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/56.xyz
+mv xtbopt.xyz out/xyz/56.xyz
+xtb ../outs/40Water/xyz/57.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/57.xyz
+mv xtbopt.xyz out/xyz/57.xyz
+xtb ../outs/40Water/xyz/58.xyz --opt tight --cycles 3000 --charge 0
+rm xtbrestart xtbtopo.mol wbo charges
+mv xtbopt.log out/log/58.xyz
+mv xtbopt.xyz out/xyz/58.xyz

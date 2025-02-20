@@ -9,11 +9,11 @@ import os
 
 dir= "../outs"
 #Vars
-numH2O=10
+numH2O=40
 numCO2=numCO3=1
-numModels=100
+numModels=1000
 minR=0
-maxR=15
+maxR=16
 
 #Load in important XYZs
 IRA_900=mm.readXYZ("../xyz/IRA900.xyz")
@@ -24,7 +24,7 @@ CO2=mm.readXYZ("../xyz/CO2.xyz")
 #Create Model (nested list of molecules, their atoms, and each atoms position)
 model=[IRA_900]
 #Name of output folder
-name="xTB_Example"
+name="40Water"
 #Directory of output folder
 dir=f'{dir}/{name}'
 
@@ -35,8 +35,7 @@ else:
     print("Folder already exists...\nContinuing...")
 
 #Create Manifest File
-f = open(dir+"/xTB_run.sh", "w")
-f.write("# -------Add Slurm setting here !!--------\nmodule purge\nmodule load xtb\n")
+f = open(dir+"/run.sh", "w")
 
 #Create folder name from data
 computationalName='xyz'
@@ -50,11 +49,14 @@ print(model)
 #Hydration Folder Format: hydrationLevel_"water"
 for ID in range(1,numModels+1):
     cModel = c(model)
-    mm.randomPlace(cModel, c(H2O), numH2O, minR, maxR)
-    mm.randomPlace(cModel, c(CO2), numCO2, minR, maxR)
-    mm.randomPlace(cModel,c(CO3),numCO3,minR,maxR)
+    mm.randomPlace(cModel, c(CO3), numCO3, 0, 3)
+    mm.randomPlace(cModel, c(H2O), 20, minR, maxR / 2)
+    mm.randomPlace(cModel, c(CO2), numCO2, maxR/2, maxR)
+    mm.randomPlace(cModel, c(H2O), 20, minR, maxR)
+
+
     mm.writeXYZ(dir+"/"+str(ID)+".xyz", cModel)
     mm.writeXTB(f,dir,ID)
-
+    print(str(round(int(ID)/(numModels+1)*100,2))+"%")
 f.close()
 

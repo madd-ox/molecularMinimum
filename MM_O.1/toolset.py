@@ -55,7 +55,7 @@ def centerMolecule(molecule,center=[0,0,0]):
     m=translateMolecule(m,-oldCenter[0]+center[0],-oldCenter[1]+center[1],-oldCenter[2]+center[2])
     return m
 
-def randomPlace(model,molecule,numberMolecules,minRadius,maxRadius,bondDistance=1.8):
+def randomPlace(model,molecule,numberMolecules,minRadius,maxRadius,bondDistance=2,molSize=4):
     m = c(molecule)
     minRadius=math.sqrt(3*minRadius**2)
     for i in range(numberMolecules):
@@ -67,7 +67,13 @@ def randomPlace(model,molecule,numberMolecules,minRadius,maxRadius,bondDistance=
                 for atom in molecule:
                     randomCenter=calculateCenter(randomMolecule)
                     distance = math.sqrt( (randomCenter[0]-atom[1])**2 + (randomCenter[1]-atom[2])**2 + (randomCenter[2]-atom[3])**2)
-                    if minDistance==None or distance<minDistance:
+                    if distance < molSize:
+                        for randomAtom in randomMolecule:
+                            distance = math.sqrt((randomAtom[1] - atom[1]) ** 2 + (randomAtom[2] - atom[2]) ** 2 + (
+                                        randomAtom[3] - atom[3]) ** 2)
+                            if minDistance == None or distance < minDistance:
+                                minDistance = distance
+                    elif minDistance==None or distance<minDistance:
                         minDistance=distance
             if minDistance>bondDistance:
                 greaterThanMinRadius=True
@@ -141,6 +147,10 @@ def writeXTB(file,path,ID,last=999,outName="out24",settings="--opt tight --cycle
     else:
         line = "xtb " + path + "/" + str(ID) + ".xyz" + " " + settings + "\n" + "rm xtbrestart xtbtopo.mol wbo charges\nmv xtbopt.log data/"+outName+"/log/" + str(ID) + ".xyz\nmv xtblast.xyz data/"+outName+"/xyz/" + str(ID) + ".xyz\n"
 
+    file.write(line)
+
+def writeManifect(file,path,ID):
+    line=path+"/"+str(ID)+".xyz\n"
     file.write(line)
 
 def readXYZText(text):
