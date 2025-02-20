@@ -141,11 +141,11 @@ def writeGJF(path,model,settings='%nprocshared=1\n%mem=1GB\n#p opt=(calcfc,carte
     f.write(f'{string}\n\n{params}\n')
     f.close()
 
-def writeXTB(file,path,ID,last=999,outName="out24",settings="--opt tight --cycles 3000 --charge 0"):
+def writeXTB(file,path,ID,last=999,settings="--opt tight --cycles 3000 --charge 0"):
     if ID != last:
         line="xtb "+path+"/"+str(ID)+".xyz"+" "+settings+"\n"+"rm xtbrestart xtbtopo.mol wbo charges\nmv xtbopt.log out/log/"+str(ID)+".xyz\nmv xtbopt.xyz out/xyz/"+str(ID)+".xyz\n"
     else:
-        line = "xtb " + path + "/" + str(ID) + ".xyz" + " " + settings + "\n" + "rm xtbrestart xtbtopo.mol wbo charges\nmv xtbopt.log data/"+outName+"/log/" + str(ID) + ".xyz\nmv xtblast.xyz data/"+outName+"/xyz/" + str(ID) + ".xyz\n"
+       line = "xtb " + path + "/" + str(ID) + ".xyz" + " " + settings + "\n" + "rm xtbrestart xtbtopo.mol wbo charges\nmv xtbopt.log out/log/" + str(ID) + ".xyz\nmv xtblast.xyz out/xyz/" + str(ID) + ".xyz\n"
 
     file.write(line)
 

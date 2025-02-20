@@ -7,13 +7,14 @@ import os
 
 #LocalDirectoryToWriteOutput
 
-dir= "../outs"
+dir= "../../xTB/runs"
 #Vars
 numH2O=40
 numCO2=numCO3=1
 numModels=1000
 minR=0
 maxR=16
+halfMaxR=8
 
 #Load in important XYZs
 IRA_900=mm.readXYZ("../xyz/IRA900.xyz")
@@ -50,13 +51,13 @@ print(model)
 for ID in range(1,numModels+1):
     cModel = c(model)
     mm.randomPlace(cModel, c(CO3), numCO3, 0, 3)
-    mm.randomPlace(cModel, c(H2O), 20, minR, maxR / 2)
-    mm.randomPlace(cModel, c(CO2), numCO2, maxR/2, maxR)
+    mm.randomPlace(cModel, c(H2O), 20, minR, halfMaxR)
+    mm.randomPlace(cModel, c(CO2), numCO2, halfMaxR, maxR)
     mm.randomPlace(cModel, c(H2O), 20, minR, maxR)
 
 
     mm.writeXYZ(dir+"/"+str(ID)+".xyz", cModel)
-    mm.writeXTB(f,dir,ID)
+    mm.writeXTB(f,"xyz",ID,)
     print(str(round(int(ID)/(numModels+1)*100,2))+"%")
 f.close()
 
